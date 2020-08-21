@@ -130,11 +130,11 @@ class Lambdasian {
     return `Hello my name is ${this.name}, I am from ${this.location}`
   }
 }
-const Rafa = new Lambdasian({
+const student = new Lambdasian({
   name: 'Rafa',
   location: 'Denver'
 })
-console.log(Rafa.speak());
+console.log(student.speak());
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
@@ -149,9 +149,29 @@ console.log(Rafa.speak());
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian {
+  constructor(attributes){
+    super(attributes);
+    this.specialty = attributes.specialty;
+    this.favLanguage = attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase
+  }
+  demo(){
+    return `Today we are learning about ${this.favLanguage}`
+  }
+  grade(){
+    return `${this.name} recieves a perfect score on ${this.favLanguage}`
+  }
 }
+const proff = new Instructor({
+  name: 'Leonard',
+  age: '55',
+  location: 'Arkansas',
+  specialty: 'Backend',
+  favLanguage: 'Python',
+  catchPhrase: 'It be like that, sometimes',
+})
+console.log(proff.demo());
 
 /*
   TASK 5
@@ -168,8 +188,23 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(attributes){
+    super(attributes);
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
 
+  }
+  listsSubjects(){
+    return `${this.favSubjects}`
+  }
+  PRAssingment(){
+    return `${this.name} has submitted a PR for data`
+  }
+  sprintChallenge(){
+    return `${this.name} has begun sprint challenge on javascript`
+  }
 }
 
 /*
