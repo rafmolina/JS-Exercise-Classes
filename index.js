@@ -156,11 +156,11 @@ class Instructor extends Lambdasian {
     this.favLanguage = attributes.favLanguage;
     this.catchPhrase = attributes.catchPhrase
   }
-  demo(){
-    return `Today we are learning about ${this.favLanguage}`
+  demo(subject){
+    return `Today we are learning about ${subject}`
   }
-  grade(){
-    return `${this.name} recieves a perfect score on ${this.favLanguage}`
+  grade(student, subject){
+    return `${student} recieves a perfect score on ${subject}`
   }
 }
 const proff = new Instructor({
@@ -171,7 +171,8 @@ const proff = new Instructor({
   favLanguage: 'Python',
   catchPhrase: 'It be like that, sometimes',
 })
-console.log(proff.demo());
+console.log(proff.demo('math'));
+console.log(proff('randy', 'javascript'))
 
 /*
   TASK 5
